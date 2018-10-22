@@ -23,14 +23,14 @@
   <a href="https://www.youtube.com/channel/UCxukvEct3wP0S5FACa3uelA" alt="YouTube">YouTube</a>
 </p>
 
-## Data frames
+## Data frames in HEX
 
-| Prefix | Body| Description |
-| --- | --- | --- |
-| `0x10` | | Set motors speed |
-| `0x30` | | Read battery voltage |
-| `0x84` | | Set manipulator orientation (only axis without gripper)	- 2 bytes MSB first |
-| `0x94` | | Set gripper value |
+| Prefix | Body | Postfix | Description |
+| --- | --- | --- | --- |
+| `10` | ⬆️`00000000`:`f7f7f7f7`<br>⬇️`f8f8f8f8`:`ffffffff`| `0d0a` | Motors speed set simultaneously for all wheels. The first range is for moving forward, the second - backward, accordingly. |
+| `30` | | `0d0a` | Read battery voltage |
+| `84` | | `0d0a` | Set manipulator orientation (only axis without gripper)	- 2 bytes MSB first |
+| `94` | | `0d0a` | Set gripper value |
 
 
 ## Dependencies:
