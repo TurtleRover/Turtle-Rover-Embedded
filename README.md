@@ -27,7 +27,7 @@
 
 | Prefix | Body | Postfix | Description |
 | --- | --- | --- | --- |
-| `10` | ⬆️`00000000`:`f7f7f7f7`<br>⬇️`f8f8f8f8`:`ffffffff`| `0d0a` | Motors speed set simultaneously for all wheels. The first range is for moving forward, the second - backward, accordingly. |
+| `10` | ⬆️`00000000`:`7f7f7f7f`<br>⬇️`80808080`:`ffffffff`| `0d0a` | Motors speed set simultaneously for all wheels. The first range is for moving forward, the second - backward, accordingly. |
 | `30` | | `0d0a` | Read battery voltage |
 | `84` | | `0d0a` | Set manipulator orientation (only axis without gripper)	- 2 bytes MSB first |
 | `94` | | `0d0a` | Set gripper value |
