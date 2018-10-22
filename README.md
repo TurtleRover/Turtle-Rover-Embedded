@@ -27,10 +27,10 @@
 
 | Prefix | Body | Postfix | Description |
 | --- | --- | --- | --- |
-| `10` | ⬆️`00` `00` `00` `00` : `7f` `7f` `7f` `7f`<br>⬇️`80808080`:`ffffffff`| `0d0a` | Motors speed set simultaneously for all wheels. The first range is for moving forward, the second - backward, accordingly. |
-| `30` | `00000000` | `0d0a` | Read battery voltage |
-| `84` | `(axis_1 >> 8) & 0xff` `axis_1 & 0xff` `(axis_2 >> 8) & 0xFF` `axis_2 & 0xff` | `0d0a` | Set manipulator orientation (only axis without gripper)	- 2 bytes MSB first |
-| `94` | | `0d0a` | Set gripper value |
+| `10` | ⬆️`00` `00` `00` `00` : `7f` `7f` `7f` `7f`<br>⬇️`80` `80` `80` `80` : `ff` `ff` `ff` `ff`| `0d0a` | Motors speed set simultaneously for all wheels. The first range is for moving forward, the second - backward, accordingly. Returns nothing |
+| `30` | `00000000` | `0d0a` | Returns battery voltage. `data * 0.1 + 7.6` to get real battery voltage |
+| `84` | `(axis_1 >> 8) & 0xff` `axis_1 & 0xff` `(axis_2 >> 8) & 0xFF` `axis_2 & 0xff` | `0d0a` | Set manipulator orientation (only axis without gripper)	- 2 bytes MSB first. Returns nothing |
+| `94` | `(gripperPosition >> 8) & 0xFF` `gripperPosition & 0xFF ` | `0d0a` | Set gripper value. Returms nothing |
 
 
 ## Dependencies:
